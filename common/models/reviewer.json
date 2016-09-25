@@ -1,0 +1,21 @@
+{
+  "name": "Reviewer",
+  "base": "User",
+  "idInjection": true,
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "reviews": {
+      "type": "hasMany",
+      "model": "Review",
+      "foreignKey": "publisherId"
+    },
+    "events": {
+      "type": "hasMany",
+      "model": "Event",
+      "foreignKey": "publisherId"
+    }    
+  },
+  "acls": [],
+  "methods": {}
+}

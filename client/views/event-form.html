@@ -1,0 +1,135 @@
+<div class="container">          
+    <div class="row row-content">
+      <div class="col-xs-12">
+        <h3>{{pageTitle}}</h3>
+        <br>
+      </div>
+      <div class="col-xs-12 col-sm-9">
+          <form class="form-horizontal" role="form" name="eventForm" ng-submit="submitEvent()" novalidate>
+          
+              <div class="form-group" ng-class="{ 'has-error' : eventForm.startDate.$error.required && !eventForm.startDate.$pristine }">
+                  <label for="startDate" class="col-sm-2 control-label">Event Start Date</label>
+                  <div class="col-sm-10">
+                    <input type="{{dateType}}" class="form-control" id="startDate" startDate="startDate" ng-disabled="action == 'Display'" placeholder="Enter Event Start Date ( MM/DD/YYYY )"
+                  ng-model="myEvent.startDate" ng-change="checkErr(myEvent.startDate,myEvent.endDate)" required>
+                    <span ng-show="eventForm.startDate.$error.required && !eventForm.startDate.$pristine" class="help-block">Event Start Date is required.</span>
+                    <span style="color:maroon" role="alert" class="help-block">{{errMessageStartDate}}</span>
+                </div>
+              </div>
+              <div class="form-group" ng-class="{ 'has-error' : eventForm.endDate.$error.required && !eventForm.endDate.$pristine }">
+                  <label for="endDate" class="col-sm-2 control-label">Event End Date</label>
+                  <div class="col-sm-10">
+                  <input type="{{dateType}}" class="form-control" id="endDate" endDate="endDate" ng-disabled="action == 'Display'" placeholder="Enter Event End Date ( MM/DD/YYYY )"
+                  ng-model="myEvent.endDate" ng-change="checkErr(myEvent.startDate,myEvent.endDate)" required>
+                    <span ng-show="eventForm.endDate.$error.required && !eventForm.endDate.$pristine" class="help-block">Event End Date is required.</span>
+                    <span style="color:maroon" role="alert" class="help-block">{{errMessageEndDate}}</span>
+ 
+                </div>
+              </div>
+              <div class="form-group" ng-class="{ 'has-error' : eventForm.name.$error.required && !eventForm.name.$pristine }">
+                  <label for="name" class="col-sm-2 control-label">Event Name</label>
+                  <div class="col-sm-10">
+                  <input type="text" class="form-control" id="name" name="name" ng-disabled="action == 'Display'" ng-disabled="action == 'Display'" placeholder="Enter Event Name"
+                  ng-model="myEvent.name" required>
+                    <span ng-show="eventForm.name.$error.required && !eventForm.name.$pristine" class="help-block">Event name is required.</span>
+                </div>
+              </div>
+
+              <div class="form-group" ng-class="{ 'has-error' : eventForm.address1.$error.required && !eventForm.address1.$pristine }">
+                  <label for="address1" class="col-sm-2 control-label">Address</label>
+                  <div class="col-sm-10">
+                      <input type="text" class="form-control" id="address1" name="address1" ng-disabled="action == 'Display'" placeholder="Enter Street Address"
+                  ng-model="myEvent.address1" required>
+                  <span ng-show="eventForm.address1.$error.required && !eventForm.address1.$pristine" class="help-block">Address is required.</span>
+                  </div>
+              </div>
+
+              <div class="form-group" ng-class="{ 'has-error' : eventForm.city.$error.required && !eventForm.city.$pristine }">
+                  <label for="city" class="col-sm-2 control-label">City</label>
+                  <div class="col-sm-10">
+                      <input type="text" class="form-control" id="city" name="city" ng-disabled="action == 'Display'" placeholder="Enter City"
+                  ng-model="myEvent.city" required>
+                  <span ng-show="eventForm.city.$error.required && !eventForm.city.$pristine" class="help-block">City is required.</span>
+                  </div>
+              </div>
+
+              <div class="form-group" ng-class="{ 'has-error' : eventForm.country.$error.required && !eventForm.country.$pristine }">
+                  <label for="country" class="col-sm-2 control-label">Country</label>
+                  <div class="col-sm-10">
+                      <input type="text" class="form-control" id="country" name="country" ng-disabled="action == 'Display'" placeholder="Enter Country"
+                  ng-model="myEvent.country" required>
+                  <span ng-show="eventForm.country.$error.required && !eventForm.country.$pristine" class="help-block">Country is required.</span>
+                  </div>
+              </div>
+
+              <div class="form-group" ng-class="{ 'has-error' : eventForm.zipcode.$error.required && !eventForm.zipcode.$pristine }">
+                  <label for="zipcode" class="col-sm-2 control-label">Zipcode</label>
+                  <div class="col-sm-10">
+                      <input type="text" class="form-control" id="zipcode" name="zipcode" ng-disabled="action == 'Display'" placeholder="Enter Zipcode"
+                  ng-model="myEvent.zipcode" required>
+                  <span ng-show="eventForm.zipcode.$error.required && !eventForm.zipcode.$pristine" class="help-block">Zipcode is required.</span>
+                  </div>
+              </div>
+
+              <div class="form-group">
+                  <label for="ageGroup" class="col-sm-2 control-label">Age Group</label>
+                  <div class="col-sm-10">
+                      <input type="text" class="form-control" id="ageGroup" name="ageGroup" ng-disabled="action == 'Display'" placeholder="Enter Age Group"
+                      ng-model="myEvent.ageGroup" required>
+                     
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label for="contactPhone" class="col-sm-2 control-label">Contact Phone</label>
+                  <div class="col-sm-10">
+                      <input type="tel" class="form-control" id="contactPhone" name="contactPhone" ng-hide="action == 'Display'" placeholder="Enter Phone Number"
+                      ng-model="myEvent.contactPhone" >
+                      <input type="tel" class="form-control" id="contactPhone" name="contactPhone" ng-disabled = "true" ng-show="action == 'Display'" 
+                      ng-model="myEvent.contactPhone" >                      
+                  </div>
+              </div>               
+              <div class="form-group">
+                  <label for="contactEmail" class="col-sm-2 control-label">Contact Email</label>
+                  <div class="col-sm-10">
+                      <input type="email" class="form-control" id="contactEmail" name="contactEmail" ng-hide="action == 'Display'" placeholder="Enter Email"
+                      ng-model="myEvent.contactEmail" >
+                      <input type="email" class="form-control" id="contactEmail" name="contactEmail" ng-disabled = "true" ng-show="action == 'Display'" 
+                      ng-model="myEvent.contactEmail" >                      
+                  </div>
+              </div>
+             <div class="form-group">
+                  <label for="contactWebsite" class="col-sm-2 control-label">Website</label>
+                  <div class="col-sm-10">
+                      <input type="url" class="form-control" id="contactWebsite" name="contactWebsite" ng-hide="action == 'Display'" placeholder="Enter Website"
+                      ng-model="myEvent.contactWebsite" >
+                      <input type="url" class="form-control" id="contactWebsite" name="contactWebsite" ng-disabled = "true" ng-show="action == 'Display'" 
+                      ng-model="myEvent.contactWebsite" >                      
+                  </div>
+              </div>               
+
+              <div class="form-group">
+                  <label for="event" class="col-sm-2 control-label">Event Description</label>
+                  <div class="col-sm-10">
+                      <textarea class="form-control" id="event" name="event" ng-disabled="action == 'Display'" rows="6"
+                          ng-model="myEvent.shortDesc" required></textarea>
+                          <span style="color:maroon" role="alert" class="help-block">{{errMessage}}</span>
+                  </div>
+              </div> 
+
+              <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+
+                    <div ng-if="action == 'Display'">
+                      <button ui-sref={{currentPage}} class="btn btn-primary" >Done</button>
+                    </div>
+                    <div ng-if="action == 'Add' || action == 'Edit'">
+                      <button type="submit" class="btn btn-primary" ng-disabled="eventForm.$invalid">Save</button>
+                      <button ui-sref={{currentPage}} class="btn btn-primary" >Cancel</button>
+                    </div> 
+
+                  </div>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,74 @@
+
+<div class="container">
+<div class="row">
+    <div class="col-xs-12">
+        <ul class="breadcrumb">
+            <li><a ui-sref="home">Home</a></li>
+            <li class="active">My Events</li>
+        </ul>
+    </div>
+    <div class="col-xs-12">
+        <h3>My Events</h3>
+        <hr>
+    </div>
+</div>
+
+
+<div class="row row-content">
+    <div class="col-xs-12" >
+
+  
+    <table id="example" class="table table-striped" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>Start date</th>
+                    <th>Name</th>                
+                    <th>City</th>
+                    <th>Age Group</th>
+                    <th>Description</th>                
+                    <th></th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>
+                        <button type="button" ui-sref="add-event" class="btn btn-default btn-sm">
+                            <span class="glyphicon glyphicon-plus-sign"></span> New Event
+                        </button>
+                    </th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th>
+
+                    </th>
+                </tr>
+            </tfoot>
+            <tbody >
+                <tr ng-repeat="event in events">
+                    <td>{{event.startDate | date:'medium'}}</td>
+                    <td>{{event.name}}</td>
+                    <td>{{event.city}}</td>
+                    <td>{{event.ageGroup}}</td>
+                    <td>{{event.shortDesc}}</td>
+                    <td>                            
+                        <a ui-sref="display-event({ id: event.id })">
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                        </a>
+                        <a ui-sref="edit-event({ id: event.id })" >
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </a>
+                        <a ui-sref="delete-event({ id: event.id })" >
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>                                                                
+                    </td>
+                </tr>
+
+
+            </tbody>
+        </table>
+
+    </div>
+</div>        
+

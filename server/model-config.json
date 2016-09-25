@@ -1,0 +1,38 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ]
+  },
+  "User": {
+    "dataSource": "cloundantDB1"
+  },
+  "AccessToken": {
+    "dataSource": "cloundantDB1",
+    "public": true
+  },
+  "ACL": {
+    "dataSource": "cloundantDB1",
+    "public": true
+  },
+  "RoleMapping": {
+    "dataSource": "cloundantDB1",
+    "public": true
+  },
+  "Role": {
+    "dataSource": "cloundantDB1",
+    "public": true
+  },
+
+  "Reviewer": {
+    "dataSource": "cloundantDB1",
+    "public": true
+  },
+  "Event": {
+    "dataSource": "cloundantDB1",
+    "public": true
+  }
+}

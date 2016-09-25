@@ -1,0 +1,35 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "mysqlDs": {
+    "host": "demo.strongloop.com",
+    "port": 3306,
+    "database": "getting_started_intermediate",
+    "username": "demo",
+    "password": "L00pBack",
+    "name": "mysqlDs",
+    "connector": "mysql"
+  },
+  "mongoDs": {
+    "host": "demo.strongloop.com",
+    "port": 27017,
+    "database": "getting_started_intermediate",
+    "username": "demo",
+    "password": "L00pBack",
+    "name": "mongoDs",
+    "connector": "mongodb"
+  },
+  "cloundantDB1": {
+    "host": "a28cdeeb-9f6b-4955-943a-c67fbd4af9a7-bluemix.cloudant.com",
+    "port": 443,
+    "url": "https://a28cdeeb-9f6b-4955-943a-c67fbd4af9a7-bluemix:cf773b2e68afab4ed9430ff5378e8e528863d6dfb86053652740e93cc9561cb5@a28cdeeb-9f6b-4955-943a-c67fbd4af9a7-bluemix.cloudant.com",
+    "database": "collegeprep1",
+    "username": "a28cdeeb-9f6b-4955-943a-c67fbd4af9a7-bluemix",
+    "password": "cf773b2e68afab4ed9430ff5378e8e528863d6dfb86053652740e93cc9561cb5",
+    "name": "cloundantDB1",
+    "modelIndex": "",
+    "connector": "cloudant"
+  }
+}
